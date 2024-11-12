@@ -12,9 +12,10 @@ public class FirstService {
 	@Autowired
 	private SecondService secondService;
 	
-	public FirstService() {
-		secondService = new SecondService();
-	}
+	//public FirstService() {
+	//	secondService = new SecondService();
+	//	counterService = new CounterService();
+	//}
 	
 	// Constructor Injection
 	//@Autowired
@@ -22,14 +23,10 @@ public class FirstService {
 	//	this.secondService = secondService;
 	//}
 	
-	// Setter Injection
-	@Autowired
-	public void setSecondService(SecondService secondService, CounterService counterService) {
-		this.secondService = secondService;
-		this.counterService = counterService;
-	}
+
 	
 	public void doSomething() {
+		counterService.count();
 		secondService.doSomething();
 	}
 	

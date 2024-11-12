@@ -12,11 +12,15 @@ public class SecondService {
 	@Autowired
 	private CounterService counterService;
 	private static final Logger log = LoggerFactory.getLogger(SecondService.class);
+
+	@Autowired
+	private ThirdService thirdService;
 	
 	public void doSomething() {
 		log.info("secondService --> doSomething()");
 		counterService.count();
-		log.info("secondDervice: " + counterService.getCount());
+		log.info("Counter of Beans: " + counterService.getCount());
+		thirdService.funClass();
 	}
 
 }
