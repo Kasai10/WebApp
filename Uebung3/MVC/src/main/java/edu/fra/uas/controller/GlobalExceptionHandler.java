@@ -5,6 +5,7 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,8 +17,8 @@ public class GlobalExceptionHandler {
     
     private final Logger log = org.slf4j.LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(MissingServletRequestParameterException.class)
-    public ModelAndView handleMissingParams(HttpServletRequest req, MissingServletRequestParameterException exception) {
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleMissingParams(HttpServletRequest req, Exception exception) {
         log.debug("handleMissingParams() is called");
 		
 		ModelAndView mav = new ModelAndView();
@@ -29,5 +30,4 @@ public class GlobalExceptionHandler {
 		mav.setViewName("support");
 		return mav;
     }
-
 }
